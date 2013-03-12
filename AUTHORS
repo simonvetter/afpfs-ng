@@ -1,0 +1,18 @@
+Simon Vetter <simon dot vetter at gmx dot com>
+- ipv6 support
+- multiple bug fixes
+
+Various developers, Boxee, The XBMC project
+- a ton of bug fixes
+
+Alex deVries <alexthepuffin at gmail dot com>:
+- started the project, wrote most of the code
+- DSI and AFP protocol handling
+- FUSE interfaces
+- command line interfaces
+
+Derrik Pates
+- crypto UAMs
+
+Michael Ulbrich
+- UTF8 support
