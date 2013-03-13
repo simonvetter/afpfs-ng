@@ -30,6 +30,9 @@ int dsi_recv(struct afp_server * server);
 #define DSI_BLOCK_TIMEOUT -1
 #define DSI_DONT_WAIT 0
 #define DSI_DEFAULT_TIMEOUT 5
+//a spun down time capsule can take up to 20 secs to
+//wake up and reply to a mount request
+#define DSI_OPENVOLUME_TIMEOUT 20
 
 
 #endif

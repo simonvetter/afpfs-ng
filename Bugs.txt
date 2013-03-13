@@ -3,9 +3,6 @@ These are known bugs in afpfs-ng 0.8:
 
 - this code definitely needs more testing...
 
-- mounting a time capsule can result in a timeout while the disk starts spinning.
-  (mine takes more than 10 seconds to spin up). Retrying right after always succeeds.
-
 - if afpfsd isnt' running, and you run an 'afp_client exit', it restarts it
   and then kills it
 

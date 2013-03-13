@@ -17,9 +17,9 @@
 static unsigned short timeout=10;
 
 struct did_cache_entry {
-                                     /* For the example /foo/bar/baz */
-	char dirname[AFP_MAX_PATH];  /* full name, eg. /foo/bar/ */
-	unsigned int did;            /*            eg  2323        */
+                                 /* For the example /foo/bar/baz */
+	char dirname[AFP_MAX_PATH];  /* full name, eg. /foo/bar/     */
+	unsigned int did;            /*            eg  2323          */
 	struct timeval time;
 	struct did_cache_entry * next;
 } ;

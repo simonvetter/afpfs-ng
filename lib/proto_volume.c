@@ -184,7 +184,7 @@ int afp_volopen(struct afp_volume * volume,
 	}
 
 	ret=dsi_send(volume->server, (char *) msg,len,
-		DSI_DEFAULT_TIMEOUT,afpOpenVol,(void *) &volume);
+		DSI_OPENVOLUME_TIMEOUT,afpOpenVol,(void *) &volume);
 	free(msg);
 	return ret;
 
