@@ -34,32 +34,44 @@ You can either use afpfs to mount an AFP share with fuse or with the command-lin
 Mount the time_travel volume from delorean.local (in this example, my time capsule's hostname)
 on /mnt/timetravel without authentication:
 
+```bash
 $ mount_afp afp://delorean.local/time_travel /mnt/timetravel
+```
 
 Same, with authentication:
 
+```bash
 $ mount_afp afp://simon:mypassword@delorean.local/time_travel /mnt/timetravel
+```
 
 Same, with authentication, forcing the UAM of your choice (usually not needed):
 
+```bash
 $ mount_afp afp://simon;AUTH=DHX2:mypassword@delorean.local/time_travel /mnt/timetravel
+```
 
 Unmount the volume:
 
+```bash
 $ fusermount -u /mnt/timetravel
+```
 
 #### command line client
 
 Open volume time_travel on delorean.local:
 
+```bash
 $ afpcmd afp://simon:mypassword@delorean.local/time_travel
+```
 
 Connect anonymously to delorean.local, list all available volumes:
 
+```bash
 $ afpcmd afp://simon:mypassword@delorean.local/
+```
 
 cd to change directories, ls to list, get file to retrieve file, put file to put file...
-	... and help for a list of supported commands.
+and help for a list of supported commands.
 
 
 ### Credits and license
