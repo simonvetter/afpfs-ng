@@ -107,6 +107,15 @@ struct afp_server * afp_server_full_connect (void * priv, struct afp_connection_
 			goto error;
 		}
 
+		//if our user and password strings are both empty and if
+		//the server supports anonymous logins, pretend we only support
+		//that as auth will never succeed with such credentials
+		if(*req->url.username == '\0' && *req->url.password == '\0'
+			&& (uams & UAM_NOUSERAUTHENT)) {
+			req->uam_mask = UAM_NOUSERAUTHENT;
+		}
+
+
 		if ((afp_server_complete_connection(priv,
 			s,address,(unsigned char *) &versions,uams,
 			req->url.username, req->url.password, 

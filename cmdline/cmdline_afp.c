@@ -215,11 +215,14 @@ static int server_subconnect(void)
 
 #define BUFFER_SIZE 2048
 	conn_req = malloc(sizeof(struct afp_connection_request));
+	if(!conn_req)
+		return -1;
 
-        memset(conn_req, 0,sizeof(struct afp_connection_request));
+    memset(conn_req, 0,sizeof(struct afp_connection_request));
 
-        conn_req->url=url;
+    conn_req->url=url;
 	conn_req->url.requested_version=31;
+
 	if (strlen(url.uamname)>0) {
 		if ((conn_req->uam_mask = find_uam_by_name(url.uamname))==0) {
 			printf("I don't know about UAM %s\n",url.uamname);

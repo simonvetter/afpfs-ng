@@ -1,4 +1,3 @@
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,7 +6,7 @@
 
 void afp_default_url(struct afp_url *url)
 {
-	memset(url,0,sizeof(*url));
+	memset(url,0,sizeof(struct afp_url));
 	url->protocol=TCPIP;
 	url->port=548;
 }
@@ -294,7 +293,7 @@ int afp_parse_url(struct afp_url * url, const char * toparse, int verbose)
 		snprintf(url->username,strlen(p)+1,"%s", p);
 		if (check_username(url->username)) {
 			if (verbose) printf("This isn't a valid username\n");
-			return -1;;
+			return -1;
 		}
 	}
 

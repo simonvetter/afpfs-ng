@@ -64,6 +64,9 @@ int dsi_getstatus(struct afp_server * server)
 	struct afp_rx_buffer rx;
 	int ret;
 	rx.data=malloc(GETSTATUS_BUF_SIZE);
+	if(rx.data == NULL)
+		return -1;
+
 	rx.maxsize=GETSTATUS_BUF_SIZE;
 	rx.size=0;
 	dsi_setup_header(server,&header,DSI_DSIGetStatus);
@@ -192,7 +195,7 @@ int dsi_send(struct afp_server *server, char * msg, int size,int wait,unsigned c
 	afp_wait_for_started_loop();
 
 	/* Add request to the queue */
-	if (!(new_request=malloc(sizeof(struct dsi_request)))) {
+	if ((new_request=malloc(sizeof(struct dsi_request))) == NULL) {
 		log_for_client(NULL,AFPFSD,LOG_ERR,
 			"Could not allocate for new request\n");
 		return -1;
