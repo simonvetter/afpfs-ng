@@ -171,7 +171,7 @@ int afp_logincont(struct afp_server *server, unsigned short id,
 	request->id = htons(id);
 	memcpy(p, userauthinfo, userauthinfo_len);
 
-	ret = dsi_send(server, (char *)msg, len, DSI_DEFAULT_TIMEOUT, 
+	ret = dsi_send(server, (char *)msg, len, DSI_LOGIN_TIMEOUT, 
 		afpLoginCont, (void *)rx);
 	free(msg);
 

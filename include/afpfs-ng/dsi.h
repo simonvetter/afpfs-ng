@@ -33,6 +33,7 @@ int dsi_recv(struct afp_server * server);
 //a spun down time capsule can take up to 20 secs to
 //wake up and reply to a mount request
 #define DSI_OPENVOLUME_TIMEOUT 20
+#define DSI_LOGIN_TIMEOUT 20
 
 
 #endif
