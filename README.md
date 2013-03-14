@@ -14,9 +14,52 @@ This is afpfs-ng-0.8.2, it brings IPV6 support and includes many bugfixes.
 Read NEWS for more details.
 
 
-### Installation and usage
+### Installation
 
-See INSTALL, NEWS and docs/README.
+Pretty standard unix stuff:
+./configure && make && sudo make install && echo 'done!'
+
+Use --disable-fuse and/or --disable-gcrypt if your system cannot meet those dependancies.
+(note that disabling gcrypt will prevent you from using login/password auth.)
+
+The command line tool needs ncurses-dev and libreadline-dev to compile. Install them
+with sudo apt-get install ncurses-dev libreadline-dev on ubuntu/debian.
+
+### Usage
+
+You can either use afpfs to mount an AFP share with fuse or with the command-line client.
+
+#### fuse
+
+Mount the time_travel volume from delorean.local (in this example, my time capsule's hostname)
+on /mnt/timetravel without authentication:
+
+$ mount_afp afp://delorean.local/time_travel /mnt/timetravel
+
+Same, with authentication:
+
+$ mount_afp afp://simon:mypassword@delorean.local/time_travel /mnt/timetravel
+
+Same, with authentication, forcing the UAM of your choice (usually not needed):
+
+$ mount_afp afp://simon;AUTH=DHX2:mypassword@delorean.local/time_travel /mnt/timetravel
+
+Unmount the volume:
+
+$ fusermount -u /mnt/timetravel
+
+#### command line client
+
+Open volume time_travel on delorean.local:
+
+$ afpcmd afp://simon:mypassword@delorean.local/time_travel
+
+Connect anonymously to delorean.local, list all available volumes:
+
+$ afpcmd afp://simon:mypassword@delorean.local/
+
+cd to change directories, ls to list, get file to retrieve file, put file to put file...
+	... and help for a list of supported commands.
 
 
 ### Credits and license
