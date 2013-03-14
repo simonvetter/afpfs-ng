@@ -17,7 +17,9 @@ Read NEWS for more details.
 ### Installation
 
 Pretty standard unix stuff:
+```bash
 ./configure && make && sudo make install && echo 'done!'
+```
 
 Use --disable-fuse and/or --disable-gcrypt if your system cannot meet those dependancies.
 (note that disabling gcrypt will prevent you from using login/password auth.)
