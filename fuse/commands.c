@@ -445,8 +445,9 @@ static int process_mount(struct fuse_client * c)
 
 	log_for_client((void *)c,AFPFSD,LOG_NOTICE,
 		"Mounting %s from %s on %s\n",
-		(char *) req->url.servername, 
-		(char *) req->url.volumename,req->mountpoint);
+		(char *) req->url.volumename, 
+		(char *) req->url.servername,
+                req->mountpoint);
 
 	memset(&conn_req,0,sizeof(conn_req));
 
