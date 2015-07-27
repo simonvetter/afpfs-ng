@@ -122,7 +122,7 @@ int afp_mapid_reply(struct afp_server *server, char * buf, unsigned int size, vo
 
 	if (reply->header.return_code.error_code!=kFPNoErr) return -1;
 
-	copy_from_pascal_two(name,reply->name,255);
+	copy_from_pascal_two(name, &reply->name, 255);
 
 	return 0;
 }
