@@ -512,14 +512,14 @@ static int process_mount(struct fuse_client * c)
 				break;
 			default:
 				log_for_client((void *)c,AFPFSD,LOG_ERR,
-					"Mounting of volume %s of server %s failed.\n", 
+					"Mounting of volume %s from server %s failed.\n", 
 						volume->volume_name_printable, 
 						volume->server->server_name_printable);
 			}
 			goto error;
 		} else {
 			log_for_client((void *)c,AFPFSD,LOG_NOTICE,
-				"Mounting of volume %s of server %s succeeded.\n", 
+				"Mounting of volume %s from server %s succeeded.\n", 
 					volume->volume_name_printable, 
 					volume->server->server_name_printable);
 			return 0;

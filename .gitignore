@@ -4,6 +4,8 @@
 # Libraries
 *.lib
 *.a
+*.la
+*.lo
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -15,3 +17,13 @@
 *.exe
 *.out
 *.app
+
+# Build directories & generated files
+.deps
+.libs
+Makefile
+config.h
+config.log
+config.status
+libtool
+
